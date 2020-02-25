@@ -1,0 +1,347 @@
+{
+    "elements": {
+        "theme": {
+            "field": "Theme",
+            "label": "Theme",
+            "labels": "Themes",
+            "tagline": "The user needs...",
+            "table": "Themes",
+            "color": "neutral",
+            "idFields": {
+                "theme": "id",
+                "story": "User Stories",
+                "feature": "Features",
+                "subtheme": "Subthemes"
+            },
+            "valueFields": {
+                "supertheme": "Supertheme",
+                "timeframe": "Timeframe",
+                "usertype": "User",
+                "productarea": "Product Area"
+            }
+        },
+        "subtheme": {
+            "field": "Subtheme",
+            "label": "Subtheme",
+            "labels": "Subthemes",
+            "tagline": "The user needs the solution to...",
+            "table": "Subthemes",
+            "color": "neutral"
+        },
+        "story": {
+            "field": "Story",
+            "searchfield": "Need",
+            "highlight": "Need",
+            "tagline": "User Story",
+            "label": "User Story",
+            "labels": "User Stories",
+            "table": "User_Stories",
+            "color": "blue",
+            "idFields": {
+                "story": "id",
+                "theme": "Theme",
+                "objective": "Business Objectives",
+                "vertical": "Verticals",
+                "painpoint": "Pain Points",
+                "feature": "Feature"
+            },
+            "valueFields": {
+                "usertype": "User Type",
+                "productarea": "Impacted Areas"
+            }
+        },
+        "feature": {
+            "field": "Feature",
+            "label": "Feature",
+            "labels": "Features",
+            "table": "Features",
+            "tagline": "SendBird provides...",
+            "color": "green",
+            "idFields": {
+                "story": "id",
+                "theme": "Theme",
+                "objective": "Business Objectives",
+                "vertical": "Verticals",
+                "painpoint": "Pain Points",
+                "feature": "Feature"
+            },
+            "valueFields": {
+                "timeframe": "Timeframe",
+                "usertype": "User",
+                "productarea": "Impacted Areas",
+                "featuretype": "Type",
+                "featureusage": "Usage"
+            }
+        },
+        "vertical": {
+            "field": "Vertical",
+            "label": "Vertical",
+            "labels": "Verticals",
+            "color": "orange",
+            "table": "Verticals"
+        },
+        "painpoint": {
+            "field": "Pain Point",
+            "label": "Pain Point",
+            "labels": "Pain Points",
+            "color": "red",
+            "table": "Pain_Points"
+        },
+        "objective": {
+            "field": "Objective",
+            "label": "Business Objective",
+            "labels": "Business Objectives",
+            "color": "yellow",
+            "table": "Business_Objectives"
+        }
+    },
+    "products": [
+        {
+            "name": "SendBird Chat",
+            "label": "Chat",
+            "tooltip": "Not Available",
+            "ready": false
+        },
+        {
+            "name": "SendBird Calls",
+            "label": "Calls",
+            "tooltip": "SendBird Calls",
+            "ready": true
+        },
+        {
+            "name": "SendBird Desk",
+            "label": "Desk",
+            "tooltip": "Not Available",
+            "ready": false
+        }
+    ],
+    "cardViews": [
+        {
+            "key": "theme",
+            "label": "Themes",
+            "counter": "Theme",
+            "heading": "The {{_}} needs...",
+            "headingvariable": "usertype",
+            "headingdefaultvariable": "user"
+        },
+        {
+            "key": "feature",
+            "label": "Features",
+            "counter": "Feature",
+            "heading": "SendBird provides..."
+        },
+        {
+            "key": "story",
+            "label": "User Stories",
+            "counter": "Stories",
+            "heading": "User Stories"
+        }
+    ],
+    "multiSelectFilters": [
+        {
+            "key": "objective",
+            "label": "Business Objectives"
+        },
+        {
+            "key": "painpoint",
+            "label": "Pain Points"
+        }
+    ],
+    "sorting": {
+        "timeframe": [
+            "Done",
+            "Now",
+            "Next",
+            "Later",
+            "Eventually",
+            "Someday"
+        ],
+        "usertype": [
+            "All User Types",
+            "End User",
+            "App Developer",
+            "Dashboard User",
+            "Product Manager",
+            "Business Customer",
+            "SendBird SDK Developer",
+            "SendBird Server Engineer",
+            "SendBird Salesperson"
+        ],
+        "supertheme": [
+            "Standard Functions",
+            "Management and Moderation",
+            "Metrics and Monitoring",
+            "Customization and Flexibility",
+            "Technical Excellence",
+            "Marketing and Awareness"
+        ]
+    },
+    "cookbook": [
+        {
+            "title": "Product Themes",
+            "description": "Product themes are high-level value-focused user needs tied to specific product-enabled outcomes.  Themes are organized into top-level “superthemes”.",
+            "icon": "categories",
+            "config": {
+                "filters": [],
+                "ui": {
+                    "cards": "theme",
+                    "filter": "objectives",
+                    "grouping": "supertheme",
+                    "label": null
+                }
+            }
+        },
+        {
+            "title": "Available Features",
+            "description": "Available features are the specific solutions included in the product that have already been released, labeled by the context in which the solution is found.",
+            "icon": "now-available",
+            "config": {
+                "filters": [
+                    {
+                        "field": "timeframe",
+                        "criteria": [
+                            "Done"
+                        ],
+                        "type": "whitelist"
+                    }
+                ],
+                "ui": {
+                    "cards": "feature",
+                    "filter": "objectives",
+                    "grouping": null,
+                    "label": "featureusage"
+                }
+            }
+        },
+        {
+            "title": "Product Roadmap",
+            "description": "Expected product outcomes, labeled by relevant user type and grouped by high-level ETA",
+            "icon": "roadmap",
+            "config": {
+                "filters": [],
+                "ui": {
+                    "cards": "theme",
+                    "filter": "objectives",
+                    "grouping": "timeframe",
+                    "label": "usertype"
+                }
+            }
+        },
+        {
+            "title": "Release Plan",
+            "description": "Upcoming features and solutions categorized by release schedule, labeled by impacted product area",
+            "icon": "calendar",
+            "config": {
+                "filters": [
+                    {
+                        "field": "timeframe",
+                        "criteria": [
+                            "Done"
+                        ],
+                        "type": "blacklist"
+                    }
+                ],
+                "ui": {
+                    "cards": "feature",
+                    "filter": "objectives",
+                    "grouping": "timeframe",
+                    "label": "productarea"
+                }
+            }
+        },
+        {
+            "title": "End User Needs",
+            "description": "Value-based needs of the end user role, organized by product area, and labeled by top-level outcome.",
+            "icon": "user-needs",
+            "config": {
+                "filters": [
+                    {
+                        "field": "usertype",
+                        "criteria": [
+                            "End User"
+                        ],
+                        "type": "whitelist"
+                    }
+                ],
+                "ui": {
+                    "cards": "theme",
+                    "filter": "objectives",
+                    "grouping": "productarea",
+                    "label": "supertheme"
+                }
+            }
+        },
+        {
+            "title": "Developer User Stories",
+            "description": "User stories applicable to the app developer role",
+            "icon": "developer",
+            "config": {
+                "filters": [
+                    {
+                        "field": "usertype",
+                        "criteria": [
+                            "App Developer"
+                        ],
+                        "type": "whitelist"
+                    }
+                ],
+                "ui": {
+                    "cards": "story",
+                    "grouping": null,
+                    "label": null
+                }
+            }
+        },
+        {
+            "title": "Onboarding User Stories for New Developers",
+            "description": "User stories tied to the app developer pain point: “steep learning curve”, labeled by product area",
+            "icon": "developer",
+            "config": {
+                "filters": [
+                    {
+                        "field": "usertype",
+                        "criteria": [
+                            "App Developer"
+                        ],
+                        "type": "whitelist"
+                    },
+                    {
+                        "field": "painpoint",
+                        "criteria": [
+                            "recfD637CSEsEQKP8" 
+                        ],
+                        "type": "whitelist"
+                    }
+                ],
+                "ui": {
+                    "cards": "story",
+                    "filter": "painpoint",
+                    "grouping": null,
+                    "label": "productarea"
+                }
+            }
+        }
+    ],
+    "colors": {
+        "Done": "neutral",
+        "Now": "red",
+        "Next": "orange",
+        "Later": "yellow",
+        "Eventually": "green",
+        "Someday": "blue"
+    },
+    "colorBank": [
+        "neutral",
+        "green",
+        "blue",
+        "red",
+        "orange",
+        "purple",
+        "yellow",
+        "teal"
+    ],
+    "caps": {
+        "sendbird": "SendBird",
+        "sdk": "SDK"
+    }
+}
